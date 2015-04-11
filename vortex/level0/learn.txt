@@ -1,0 +1,26 @@
+
+This task is pretty easy,
+
+It has been given in the question that the format is unsigned integer in little endian format. All the packets in the network are packed and sent in
+order to reduce the bandwidth and python struct module is very helpful in packing and unpacking binary strings. 
+
+
+'@' 'native, native'
+'=' 'native, standard'
+'<' 'little-endian'
+'>' 'big-endian
+'!', 'network'
+
+we specify a format string according to which the whole string is packed and rest is simple.
+
+we iterate 4 times just because while sending the data over the network we dunno the exact size (it is given in the question as 4).
+
+so voila....
+
+username: vortex1
+password: Gq#qu3bF3 
+
+
+some useful links :
+https://www.youtube.com/watch?v=dAT26qjPqwU
+http://pymotw.com/2/struct/
