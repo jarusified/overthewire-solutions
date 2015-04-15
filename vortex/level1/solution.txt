@@ -1,0 +1,34 @@
+reading through the given c code. 
+
+we can detect the following things:
+
+1) the buffer is of the size 512*4 (assuming pointer size is 4)
+
+2) they are printing the buffer in the print function ( that helps a bit :P)
+
+3) the variable pointer is pointing to half way 
+
+4) only if a new line or \\ is encountered, the loop breaks
+
+5) \n prints the buffer
+
+6) \\ moves the pointer backwards
+
+
+Now comes the smashing part:
+
+in the preprocessor directive we find 
+
+  if(((unsigned int)ptr & 0xff000000)==0xca000000) { shell spawning code }
+
+so we need the value of the pointer to be \xca. Hence overflowing the buffer and rewriting the ptr to be \xca spawns the shell
+
+[ buffer ] [ sfp ] [ ret ]
+
+so (256+4)*"\\"+"\xca" will spawn the shell
+
+
+password : 23anbT\rE
+
+
+
